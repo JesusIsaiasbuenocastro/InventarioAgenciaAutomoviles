@@ -8,7 +8,7 @@ import { catchError, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class InventarioService {
-  private url = 'https://back-end-inventario.herokuapp.com/api';
+  private url = 'https://inventario-back-end.herokuapp.com/api';
   constructor(private http: HttpClient ) { }
 
   crearAutomovil( automovil : AutomovilModel){

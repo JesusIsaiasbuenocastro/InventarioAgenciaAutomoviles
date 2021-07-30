@@ -8,7 +8,7 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class MarcaService {
 
-  private url = 'https://back-end-inventario.herokuapp.com/api';
+  private url = 'https://inventario-back-end.herokuapp.com/api';
 
   constructor( private http: HttpClient ) { }
 

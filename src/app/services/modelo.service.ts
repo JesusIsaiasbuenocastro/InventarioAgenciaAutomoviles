@@ -7,7 +7,7 @@ import { ModeloModel } from '../models/modelo.models';
   providedIn: 'root'
 })
 export class ModeloService {
-  private url = 'https://back-end-inventario.herokuapp.com/api';
+  private url = 'https://inventario-back-end.herokuapp.com/api';
 
   constructor(private http: HttpClient ) { }
 
