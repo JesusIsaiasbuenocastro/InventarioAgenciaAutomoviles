@@ -1,0 +1,43 @@
+<h1>Modelo</h1>
+<br>
+<div class="row text-right">
+    <div class="col">
+        <button routerLink="/catalogomodelos" class="btn btn-danger">
+            Regresar
+        </button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <form (ngSubmit) = "guardar(f)"
+            #f="ngForm">
+            <div class="form-group">
+                <label for="idMarca">ID</label>
+                <input type="text" name="idMarca"  [(ngModel)] = "modelo.id"  class="form-control" id="idModelo" placeholder="ID se genera automaticamente" disabled >
+            </div>
+
+            <div class="form-group">
+                <label for="selectMarca">Marca</label>
+                <select  class="form-control" name="selectMarca" [(ngModel)] = "modelo.id_marca"  required>
+                    <option *ngFor="let marca of marcas" [value] ="marca.id" >{{marca.nombre}}</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="modelo">Ingresar el modelo</label>
+                <input type="text" name="modelo"  [(ngModel)] = "modelo.modelo"  class="form-control" id="modelo" placeholder="Ingresar el modelo" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="tipoAutomovil">Tipo</label>
+                <select  class="form-control" name="tipoAutomovil" [(ngModel)] = "modelo.id_tipo"  required>
+                    <option *ngFor="let tipo of tiposAutomovil" [value] ="tipo.id" >{{tipo.nombretipo}}</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" type="submit">
+                Guardar
+            </button>
+        </form>
+    </div>
+</div>

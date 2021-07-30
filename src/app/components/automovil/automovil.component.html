@@ -1,0 +1,60 @@
+<h1>Marca</h1>
+<br>
+<div class="row text-right">
+    <div class="col">
+        <button routerLink="/inventario" class="btn btn-danger">
+            Regresar
+        </button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <form (ngSubmit) = "guardar(f)"
+            #f="ngForm">
+            <div class="form-group">
+                <label for="idAutomovil">ID</label>
+                <input type="text" name="idAutomovil" [(ngModel)] = "automovil.id"  class="form-control" id="idAutomovil" placeholder="ID se genera automaticamente" disabled >
+            </div>
+            <div class="form-group">
+                <label for="selectMarca">Marca</label>
+                <select  class="form-control" name="selectMarca"  [(ngModel)] = "automovil.id_marca"    required>
+                    <option *ngFor="let marca of marcas" [value] ="marca.id" >{{marca.nombre}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="selectModelo">Modelo</label>
+                <select  class="form-control" name="selectModelo"  [(ngModel)] = "automovil.id_modelo"   required>
+                    <option *ngFor="let modelo of modelos" [value] ="modelo.id" >{{modelo.modelo}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="selectTipo">Tipo</label>
+                <select  class="form-control" name="selectTipo"  [(ngModel)] = "automovil.id_tipo"   required>
+                    <option *ngFor="let tipo of tiposAutomovil" [value] ="tipo.id" >{{tipo.nombretipo}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="selectColor">Color</label>
+                <select  class="form-control" name="selectColor"  [(ngModel)] = "automovil.color"  required>
+                    <option *ngFor="let color of colores"  >{{ color.color}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="txtcantidad">Cantidad</label>
+                <input type="text" name="txtcantidad"  class="form-control" id="txtcantidad"  [(ngModel)] = "automovil.cantidad"  placeholder="Cantidad en inventario"  >
+            </div>
+            <div class="form-group">
+                <label for="txtKilometraje">Kilometraje</label>
+                <input type="text" name="txtKilometraje"  class="form-control" id="txtKilometraje" [(ngModel)] = "automovil.kilometraje"  placeholder="Agregar Kilometraje"  >
+            </div>
+            <div class="form-group">
+                <label for="txtFecha">Fecha</label>
+                <input type="date" name="txtFecha"  class="form-control" id="txtFecha" [(ngModel)] = "automovil.fecha_entrada"   >
+            </div>
+            <button class="btn btn-primary" type="submit">
+                Guardar
+            </button>
+        </form>
+    </div>
+</div>

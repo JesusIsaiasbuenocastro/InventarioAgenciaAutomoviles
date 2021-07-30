@@ -1,0 +1,55 @@
+<h1>Listado de Automoviles</h1>
+
+<hr>
+
+<div class="row">
+    <div class="col text-right">
+        <button class="btn btn-primary"  routerLink="/automovil/nuevo" >
+            <i class="bi bi-plus"></i>
+            Agregar
+        </button>
+    </div>
+</div>
+
+<table class="table mt-3 ">
+    <thead class="thead-dark">
+      <tr >
+        <th scope="col">ID</th>
+        <th scope="col">Marca</th>
+        <th scope="col">Modelo</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Color</th>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Kilometraje</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let automovil of inventario; let i =index">
+        <td>{{ automovil.id }}</td>
+        <td>{{ automovil.marca }}</td>
+        <td>{{ automovil.modelo }}</td>
+        <td>{{ automovil.nombreTipo }}</td>
+        <td>{{ automovil.color }}</td>
+        <td>{{ automovil.cantidad }}</td>
+        <td>{{ automovil.kilometraje }}</td>
+        <td>
+            <button class="btn btn-primary mr-1"   [routerLink]="['/automovil', automovil.id ]"  >
+                <i class="bi bi-pencil"></i>
+              </button>
+              <button class="btn btn-danger mr-1" (click) = "eliminarAutomovil(automovil, i)">
+                <i class="bi bi-trash-fill"></i>
+              </button>
+
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="alert alert-primary text-center mt-3"  *ngIf="inventario.length ===0 " >
+        <h4 class="alert-heading">No hay registros</h4>
+        
+  </div>
+
+  
